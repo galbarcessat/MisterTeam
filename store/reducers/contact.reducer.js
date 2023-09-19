@@ -6,6 +6,8 @@ export const ADD_CONTACT = 'ADD_CONTACT'
 export const UPDATE_CONTACT = 'UPDATE_CONTACT'
 
 export const SET_FILTER_BY = 'SET_FILTER_BY'
+export const SET_SORTBY = 'SET_SORTBY'
+
 export const SET_IS_LOADING = 'SET_IS_LOADING'
 
 const initialState = {
@@ -13,6 +15,7 @@ const initialState = {
     // todoCount: 0,
     // doneCount: 0,
     filterBy: '',
+    sortBy: 'noSort',
     isLoading: false
 }
 
@@ -40,7 +43,9 @@ export function contactReducer(state = initialState, action = {}) {
         // Filter
         case SET_FILTER_BY:
             return { ...state, filterBy: action.filterBy }
-
+        //SortBy
+        case SET_SORTBY:
+            return { ...state, sortBy: action.sortBy }
         // Is Loading
         case SET_IS_LOADING:
             return { ...state, isLoading: action.isLoading }

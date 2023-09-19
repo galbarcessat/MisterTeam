@@ -15,7 +15,7 @@ export function ContactFilter({ filterBy, onSetFilterBy }) {
     function handleChange({ target }) {
         const field = target.name
         let value = target.value
-        setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value }))
+        setFilterByToEdit(prevFilter => (value))
     }
 
     function onSubmitFilter(ev) {
@@ -31,7 +31,7 @@ export function ContactFilter({ filterBy, onSetFilterBy }) {
                 <div className="">
                     <input
                         onChange={handleChange}
-                        value={txt}
+                        value={filterByToEdit}
                         type="text"
                         placeholder="Search"
                         name="txt"
