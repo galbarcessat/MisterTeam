@@ -5,6 +5,7 @@ import { contactService } from '../services/contact.service.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { SET_CONTACTS } from '../store/reducers/contact.reducer.js'
 import { store } from '../store/store.js'
+import { ContactList } from '../cmps/ContactList.jsx'
 
 export function ContactIndex() {
 
@@ -44,8 +45,7 @@ export function ContactIndex() {
 
     return (
         <section >
-            {/* <ul><ContactList/></ul> */}
-            <h1>contact index completed</h1>
+            {<ContactList contacts={contacts} />}
         </section >
     )
 }
