@@ -4,7 +4,8 @@ const { Provider } = ReactRedux
 
 import { AppHeader } from "./cmps/AppHeader.jsx"
 
-import { ContactIndex} from "./pages/ContactIndex.jsx"
+import { ContactIndex } from "./pages/ContactIndex.jsx"
+import { HomePage } from "./pages/HomePage.jsx"
 import { store } from './store/store.js'
 
 export function App() {
@@ -15,7 +16,8 @@ export function App() {
                     <AppHeader />
                     <main>
                         <Routes>
-                            <Route element={<ContactIndex />} path="/" />
+                            <Route element={<HomePage />} path="/" />
+                            <Route element={<ContactIndex />} path="/contact" />
                         </Routes>
                     </main>
                 </section>
