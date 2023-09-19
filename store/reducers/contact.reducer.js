@@ -12,7 +12,7 @@ const initialState = {
     contacts: [],
     // todoCount: 0,
     // doneCount: 0,
-    // filterBy: todoService.getDefaultFilter(),
+    filterBy: '',
     isLoading: false
 }
 
@@ -39,7 +39,7 @@ export function contactReducer(state = initialState, action = {}) {
 
         // Filter
         case SET_FILTER_BY:
-            return { ...state, filterBy: { ...action.filterBy } }
+            return { ...state, filterBy: action.filterBy }
 
         // Is Loading
         case SET_IS_LOADING:

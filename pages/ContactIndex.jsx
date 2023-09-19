@@ -5,13 +5,17 @@ const { useParams, useNavigate, Link } = ReactRouterDOM
 
 import { contactService } from '../services/contact.service.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { SET_CONTACTS } from '../store/reducers/contact.reducer.js'
+import { SET_CONTACTS, SET_FILTER_BY } from '../store/reducers/contact.reducer.js'
 import { store } from '../store/store.js'
 import { ContactList } from '../cmps/ContactList.jsx'
+import { ContactFilter } from '../cmps/ContactFilter.jsx'
 
 export function ContactIndex() {
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const contacts = useSelector(storeState => storeState.contactModule.contacts)
+    const filterBy = useSelector(storeState => storeState.contactModule.filterBy)
+
     // const [contactToAdd, setContactToAdd] = useState(contactService.getEmptyContact())
 
     useEffect(() => {
@@ -22,7 +26,9 @@ export function ContactIndex() {
     }, [])
 
 
-
+    function onSetFilterBy(filterBy) {
+        dispatch({ type: SET_FILTER_BY, filterBy })
+    }
     function loadContacts() {
         // const { filterBy } = store.getState().contactModule
         // store.dispatch({ type: SET_IS_LOADING, isLoading: true })
@@ -47,6 +53,10 @@ export function ContactIndex() {
 
     return (
         <section >
+            <ContactFilter
+                onSetFilterBy={onSetFilterBy}
+                filterBy={filterBy}
+            />
             {<ContactList contacts={contacts} />}
             <button onClick={() => navigate('/contact/edit')}>Add Contact</button>
         </section >
