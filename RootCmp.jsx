@@ -20,7 +20,7 @@ export function App() {
                         <Routes>
                             <Route element={<HomePage />} path="/" />
                             <Route element={<ContactIndex />} path="/contact" />
-                            <Route element={<ContactDetailsDetails />} path="/contact/:contactId" />
+                            <Route element={<ContactDetails />} path="/contact/:contactId" />
 
                         </Routes>
                     </main>
