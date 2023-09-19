@@ -26,20 +26,21 @@ export function ContactFilter({ filterBy, onSetFilterBy }) {
     const { txt, isDone, pageIdx } = filterByToEdit
 
     return (
-        <section className="todo-filter">
+        <section className="filter">
             <form onSubmit={onSubmitFilter}>
-                <div className="filter-input-wrapper">
+                <div className="">
                     <input
                         onChange={handleChange}
                         value={txt}
                         type="text"
                         placeholder="Search"
                         name="txt"
+                        className="input"
                     />
-                    <div className="fa search"></div>
+                    <div className=""></div>
                 </div>
             </form>
-{/*            
+            {/*            
             <label >
                 Page: 
                 <input type="number"

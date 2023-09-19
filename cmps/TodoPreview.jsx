@@ -6,7 +6,7 @@ export function TodoPreview({ contact }) {
 
 
     return (
-        <div>
+        <div className="list-item">
             <p>{contact.firstName}, {contact.lastName}</p>
             <p>{contact.desc}</p>
             <button onClick={() => navigate(`/contact/${contact._id}`)}>More Details</button>

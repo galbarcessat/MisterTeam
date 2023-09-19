@@ -1,4 +1,4 @@
-button {
+/* button {
     cursor: pointer;
     background-color: var(--clr2bg);
     margin: 0.5em;
@@ -15,4 +15,20 @@ button:hover {
 input:focus {
     background-color: var(--clr1bg);
     transition: background-color 1s;
+} */
+
+button {
+  display: inline-block;
+  padding: 10px 20px; /* Add padding for a comfortable button size */
+  background-color: #7592b1; /* Set a background color */
+  color: white; /* Set text color */
+  border: none; /* Remove borders */
+  border-radius: 5px; /* Add rounded corners */
+  font-size: 16px; /* Set the font size */
+  cursor: pointer; /* Add a pointer cursor on hover */
+}
+
+/* Style the button on hover */
+button:hover {
+  background-color: #0056b3; /* Change the background color on hover */
 }

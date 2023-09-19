@@ -1,0 +1,28 @@
+/* Style the input element */
+.filter {
+  margin: auto;
+  text-align: center;
+  margin: 10px;
+}
+
+.input {
+  width: 60%; /* Make the input expand to fill its container */
+  padding: 10px; /* Add padding for better spacing */
+  border: 1px solid #ccc; /* Add a border */
+  border-radius: 5px; /* Add rounded corners */
+  font-size: 16px; /* Set the font size */
+  margin: auto;
+  text-align: center;
+}
+
+/* Style the input element on focus */
+.input:focus {
+  outline: none; /* Remove the default focus outline */
+  border-color: #007bff; /* Change the border color on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle box shadow on focus */
+}
+
+/* Style placeholder text */
+::placeholder {
+  color: #999; /* Set a placeholder text color */
+}

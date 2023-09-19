@@ -1,80 +1,44 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
-/* { 
+/* Apply a margin and padding to the ul to create space around the list */
+ul {
+  list-style: none; /* Remove the default list bullets */
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  text-align: center;
 }
 
-.list {
-  position: relative;
-}
-.list h2 {
-  color: #fff;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
-}
-.list ul {
-  position: relative;
-}
-.list ul li {
-  position: relative;
-  left: 0;
-  color: #302c2e;
-  list-style: none;
-  margin: 4px 0;
-  border-left: 2px solid #9b8a90;
-  transition: 0.5s;
-  cursor: pointer;
-}
-.list ul li:hover {
-  left: 10px;
-
-.list ul li:hover span {
-  color: #111;
-}
-.list ul li:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #ffffff84;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: 0.5s;
-}
-.list ul li:hover:before {
-  transform: scaleX(1);
-} */
-
-.list ul li span {
-  position: relative;
-  padding: 8px;
-  padding-left: 12px;
-  display: inline-block;
-  z-index: 1;
-  transition: 0.5s;
+/* Style the list items */
+li {
+  margin-bottom: 15px; /* Add spacing between each list item */
+  padding: 15px; /* Add padding to the list items */
+  border: 1px solid #ccc; /* Add a border around each list item */
+  border-radius: 8px; /* Add rounded corners to the list items */
+  background-color: #f9f9f9; /* Set a background color for the list items */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+  transition: background-color 0.2s; /* Add a smooth transition for background color */
 }
 
-.list ul li:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #ffffff84;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: 0.5s;
+/* Style the list items on hover for interactivity */
+li:hover {
+  background-color: #e0e0e0; /* Change the background color on hover */
+  cursor: pointer; /* Change the cursor to a pointer on hover */
 }
 
-.list ul li:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #ffffff84;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: 0.5s;
+/* Style the <p> elements inside the <li> elements */
+li p {
+  margin: 0; /* Remove the default margin on <p> elements */
+  font-size: 18px; /* Increase the font size for <p> elements */
+  color: #333; /* Set the text color for <p> elements */
+  font-weight: bold; /* Apply bold font weight to the text */
+  text-align: center; /* Center-align the text within <p> elements */
+  margin-top: 5px;
+}
+
+/* Style the <p> elements inside the <li> elements on hover */
+li:hover p {
+  color: #555; /* Change the text color on hover for <p> elements */
+}
+
+.list-item button {
+  text-align: center;
+  margin-top: 10px;
 }
