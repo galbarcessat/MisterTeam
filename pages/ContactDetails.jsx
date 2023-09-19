@@ -6,11 +6,10 @@ import { contactService } from "../services/contact.service.js"
 export function ContactDetails() {
     const params = useParams()
     const navigate = useNavigate()
-
     const [currContact, setCurrContact] = useState(null)
 
     useEffect(() => {
-        contactService.getById(params.id)
+        contactService.getById(params.contactId)
             .then(contact => {
                 if (!contact) return navigate('/contact')
                 setCurrContact(contact)
@@ -20,8 +19,15 @@ export function ContactDetails() {
             })
     }, [])
 
+    function onDeleteContact(_id) {
+        contactService.remove(_id).then(() => {
+            console.log('contact removed id :', _id)
+            navigate('/contact')
+        }).catch(err => console.log('err:', err))
+    }
+
     if (!currContact) return <h4>Loading...</h4>
-    const { _id, firstName, lastName, email, phone, desc } = currTodo
+    const { _id, firstName, lastName, email, phone, desc } = currContact
     return (
         <section className="contact-details">
             <div className="contact-data-container">
@@ -34,6 +40,8 @@ export function ContactDetails() {
                 <button className="back-btn" onClick={() => navigate('/contact')}>
                     Back
                 </button>
+                <button onClick={() => onDeleteContact(_id)}>Delete</button>
+                {/* <button><Link>Edit</Link></button> */}
             </div>
         </section>
     )

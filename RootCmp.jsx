@@ -7,6 +7,7 @@ import { HomePage } from "./pages/HomePage.jsx"
 
 import { ContactIndex } from "./pages/ContactIndex.jsx"
 import { ContactDetails } from "./pages/ContactDetails.jsx"
+import { ContactEdit } from "./pages/ContactEdit.jsx"
 
 import { store } from './store/store.js'
 
@@ -21,7 +22,8 @@ export function App() {
                             <Route element={<HomePage />} path="/" />
                             <Route element={<ContactIndex />} path="/contact" />
                             <Route element={<ContactDetails />} path="/contact/:contactId" />
-
+                            <Route element={<ContactEditt />} path="/contact/edit" />
+                            <Route element={<ContactEdit />} path="/contact/edit/:contactId" />
                         </Routes>
                     </main>
                 </section>
