@@ -10,7 +10,7 @@ export function AppHeader() {
             <h1>MisterTeam App</h1>
             <nav>
                 <NavLink to="/">Teams</NavLink> |
-                <NavLink to="/">Contacts</NavLink>
+                <NavLink to="/contact">Contacts</NavLink>
             </nav>
         </header>
     );
