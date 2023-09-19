@@ -3,9 +3,11 @@ const { Route, Routes } = ReactRouterDOM
 const { Provider } = ReactRedux
 
 import { AppHeader } from "./cmps/AppHeader.jsx"
+import { HomePage } from "./pages/HomePage.jsx"
 
 import { ContactIndex } from "./pages/ContactIndex.jsx"
-import { HomePage } from "./pages/HomePage.jsx"
+import { ContactDetails } from "./pages/ContactDetails.jsx"
+
 import { store } from './store/store.js'
 
 export function App() {
@@ -18,6 +20,8 @@ export function App() {
                         <Routes>
                             <Route element={<HomePage />} path="/" />
                             <Route element={<ContactIndex />} path="/contact" />
+                            <Route element={<ContactDetailsDetails />} path="/contact/:contactId" />
+
                         </Routes>
                     </main>
                 </section>
