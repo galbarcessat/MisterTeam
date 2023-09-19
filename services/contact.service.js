@@ -12,9 +12,26 @@ export const contactService = {
     getEmptyContact
 }
 
-function query() {
+function query(filterBy = '', sortBy = 'noSort') {
     return storageService.query(STORAGE_KEY)
         .then(contacts => {
+            if (filterBy) {
+                const regExp = new RegExp(filterBy, 'i')
+                contacts = contacts.filter(contact => regExp.test(contact.firstName))
+            }
+            if (sortBy === 'noSort') {
+                contacts = contacts
+
+            } else if (sortBy === 'firstName') {
+                contacts = contacts.sort((contact1, contact2) => {
+                    return contact1.firstName.localeCompare(contact2.firstName);
+                })
+
+            } else if (sortBy === 'LastName') {
+                contacts = contacts.sort((contact1, contact2) => {
+                    return contact1.LastName.localeCompare(contact2.LastName);
+                })
+            }
             return contacts
         })
 }
