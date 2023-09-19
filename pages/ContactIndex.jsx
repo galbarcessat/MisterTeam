@@ -20,21 +20,21 @@ export function ContactIndex() {
     // const [contactToAdd, setContactToAdd] = useState(contactService.getEmptyContact())
 
     useEffect(() => {
-        loadContacts(filterBy,sortBy)
+        loadContacts(filterBy, sortBy)
             .catch(err => {
                 console.log('err:', err)
             })
-    }, [filterBy,sortBy])
+    }, [filterBy, sortBy])
 
 
     function onSetFilterBy(filterBy) {
         dispatch({ type: SET_FILTER_BY, filterBy })
     }
 
-    function loadContacts(filterBy,sortBy) {
+    function loadContacts(filterBy, sortBy) {
         // const { filterBy } = store.getState().contactModule
         // store.dispatch({ type: SET_IS_LOADING, isLoading: true })
-        return contactService.query(filterBy,sortBy)
+        return contactService.query(filterBy, sortBy)
             .then(contacts => {
                 store.dispatch({ type: SET_CONTACTS, contacts })
                 console.log('contacts:', contacts)
@@ -55,7 +55,7 @@ export function ContactIndex() {
     }
 
     return (
-        <section >
+        <section className='select-container' >
             {/* //SORT BY */}
             <select name="sortBySelect" onChange={() => onSetSortBy(event.target.value)}>
                 <option value="noSort">No Sort</option>
