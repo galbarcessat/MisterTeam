@@ -38,7 +38,7 @@ function save(contact) {
 
 function getEmptyContact() {
     return {
-        _id: utilService.makeId(),
+        _id: '',
         firstName: '',
         lastName: '',
         email: '',

@@ -1,5 +1,7 @@
 const { useState, useEffect } = React
 const { useSelector, useDispatch } = ReactRedux
+const { useParams, useNavigate, Link } = ReactRouterDOM
+
 
 import { contactService } from '../services/contact.service.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
@@ -8,7 +10,7 @@ import { store } from '../store/store.js'
 import { ContactList } from '../cmps/ContactList.jsx'
 
 export function ContactIndex() {
-
+    const navigate = useNavigate()
     const contacts = useSelector(storeState => storeState.contactModule.contacts)
     // const [contactToAdd, setContactToAdd] = useState(contactService.getEmptyContact())
 
@@ -46,6 +48,7 @@ export function ContactIndex() {
     return (
         <section >
             {<ContactList contacts={contacts} />}
+            <button onClick={() => navigate('/contact/edit')}>Add Contact</button>
         </section >
     )
 }

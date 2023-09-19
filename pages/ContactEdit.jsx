@@ -1,12 +1,16 @@
 const { useState, useEffect } = React
 const { useParams, useNavigate } = ReactRouterDOM
+const { useSelector, useDispatch } = ReactRedux
+
 
 import { contactService } from "../services/contact.service.js"
+import { UPDATE_CONTACT } from "../store/reducers/contact.reducer.js"
 
 export function ContactEdit() {
 
     const navigate = useNavigate()
     const params = useParams()
+    const dispatch = useDispatch()
 
     const [contactToEdit, setContactToEdit] = useState(contactService.getEmptyContact())
 
@@ -51,28 +55,40 @@ export function ContactEdit() {
     function onSaveContact(ev) {
         ev.preventDefault()
         contactService.save(contactToEdit)
-            .then(() => navigate('/contact'))
+            .then(() => {
+                dispatch({ type: UPDATE_CONTACT, contact: contactToEdit })
+                navigate('/contact')
+            })
             .catch(err => {
-                showErrorMsg('Cannot save contact', err)
+                console.log('err:', err)
+                // showErrorMsg('Cannot save contact', err)
             })
     }
-
-    const { txt } = contactToEdit
+    const { _id, firstName, lastName, email, phone, desc } = contactToEdit
 
     return (
         <section className="contact-edit">
             <h2>Contact Edit</h2>
             <section className="car-edit">
-            <form onSubmit={onSaveContact} >
-                {/* <label htmlFor="vendor">Vendor:</label>
-                <input onChange={handleChange} value={vendor} type="text" name="vendor" id="vendor" />
+                <form onSubmit={onSaveContact} >
+                    <label htmlFor="firstName">First Name:</label>
+                    <input onChange={handleChange} value={firstName} type="text" name="firstName" id="firstName" />
 
-                <label htmlFor="maxSpeed">Max Speed:</label>
-                <input onChange={handleChange} value={maxSpeed} type="number" name="maxSpeed" id="maxSpeed" /> */}
+                    <label htmlFor="lastName">Last Name:</label>
+                    <input onChange={handleChange} value={lastName} type="text" name="lastName" id="lastName" />
 
-                <button>Save</button>
-            </form>
-        </section>
+                    <label htmlFor="email">Email:</label>
+                    <input onChange={handleChange} value={email} type="text" name="email" id="email" />
+
+                    <label htmlFor="phone">Phone:</label>
+                    <input onChange={handleChange} value={phone} type="number" name="phone" id="phone" />
+
+                    <label htmlFor="desc">Description:</label>
+                    <input onChange={handleChange} value={desc} type="text" name="desc" id="desc" />
+
+                    <button>Save</button>
+                </form>
+            </section>
         </section>
     )
 
