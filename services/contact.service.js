@@ -9,6 +9,7 @@ export const contactService = {
     getById,
     save,
     remove,
+    getEmptyContact
 }
 
 function query() {
@@ -32,6 +33,17 @@ function save(contact) {
     } else {
 
         return storageService.post(STORAGE_KEY, contact)
+    }
+}
+
+function getEmptyContact() {
+    return {
+        _id: utilService.makeId(),
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        desc: ''
     }
 }
 
@@ -72,4 +84,5 @@ function _createContacts() {
                 desc: 'FullStack Eng'
             }
         ]
+    utilService.saveToStorage(STORAGE_KEY, contacts)
 }
