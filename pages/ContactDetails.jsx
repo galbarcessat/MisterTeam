@@ -1,5 +1,5 @@
 const { useState, useEffect } = React
-const { useParams, useNavigate } = ReactRouterDOM
+const { useParams, useNavigate, Link } = ReactRouterDOM
 
 import { contactService } from "../services/contact.service.js"
 
@@ -41,7 +41,7 @@ export function ContactDetails() {
                     Back
                 </button>
                 <button onClick={() => onDeleteContact(_id)}>Delete</button>
-                {/* <button><Link>Edit</Link></button> */}
+                <button><Link to={`/contact/edit/${_id}`}>Edit</Link></button>
             </div>
         </section>
     )
